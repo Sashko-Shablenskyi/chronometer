@@ -8,15 +8,21 @@ export function drawCircle({
   fillStyle,
   radius,
 }) {
+  ctx.beginPath();
   ctx.shadowColor = shadowColor;
   ctx.shadowOffsetX = shadowOffsetX;
   ctx.shadowOffsetY = shadowOffsetY;
   ctx.shadowBlur = shadowBlur;
-  ctx.shadowInset = true;
 
-  ctx.beginPath();
   ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
   ctx.fillStyle = fillStyle;
   ctx.fill();
+
+  ctx.shadowColor = shadowColor;
+  ctx.shadowOffsetX = 4;
+  ctx.shadowOffsetY = 4;
+  ctx.shadowBlur = shadowBlur;
+  ctx.fill();
+
   ctx.closePath();
 }
